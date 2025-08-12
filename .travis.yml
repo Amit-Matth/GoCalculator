@@ -1,0 +1,17 @@
+language: go
+
+go:
+- 1.17.x 
+
+addons:
+  apt_packages:
+  - libgl1-mesa-dev
+  - libwayland-bin
+  - xorg-dev
+  - libx11-dev
+  - libxcursor-dev
+
+script:
+- go test ./... -v
+- go build -o gorpn gui/fyne/main.go
+- go build -o gorpn-cli cli/cli.go
